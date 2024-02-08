@@ -10,7 +10,8 @@ function App() {
   function updateData(data) {
     setWeatherInfo([data]);
   }
-
+  
+ 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -52,10 +53,12 @@ function App() {
               <p>Temperature: {data.temp}</p>
               <p>Humidity: {data.humidity}</p>
               <p>Wind Speed: {data.windspeed}</p>
+			  <p>Crop:{data.predictedData}</p>
             </div>
           ))}
         </div>
       </form>
+	  
     </div>
   );
 }
