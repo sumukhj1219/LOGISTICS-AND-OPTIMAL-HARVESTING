@@ -77,6 +77,8 @@ app.post('/predict',async (req, res)=>{
 	res.json({message:'welocme',city, temp:temp, humidity:humidity, windspeed:windspeed, predictedData:predictedData.crop })
 })
 
+
+
 app.listen(PORT, ()=>{
 	console.log('connected  on  port 4000')
 })
