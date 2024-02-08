@@ -1,6 +1,7 @@
 import * as brain from 'brain.js';
 import express from 'express';
 import cors from 'cors'
+import 
 const app = express()
 app.use(cors())
 app.use(express.json()); 
@@ -77,6 +78,26 @@ app.post('/predict',async (req, res)=>{
 	res.json({message:'welocme',city, temp:temp, humidity:humidity, windspeed:windspeed, predictedData:predictedData.crop })
 })
 
+app.get('/trade',(req, res)=>{
+	res.json({message:"trade"})
+})
+
+
+app.post('/trade',async (req, res)=>{
+	try {
+		const {username, items} = req.body
+		const user = await User.findOne({username})
+		if(!user)
+		{
+			const newUser = new User({
+				user
+			})
+		}
+	} catch (error) {
+		
+	}
+	res.json({message:"trade"})
+})
 
 
 app.listen(PORT, ()=>{

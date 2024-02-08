@@ -1,7 +1,8 @@
 // App.js
 
 import { useState, useEffect } from 'react';
-import './App.css';
+import '../App.css';
+import {Link} from 'react-router-dom'
 
 function App() {
   const [city, setCity] = useState('');
@@ -11,7 +12,21 @@ function App() {
     setWeatherInfo([data]);
   }
   
- 
+  async function handleTrade(e)
+  {
+   try {
+	const res = await fetch('http://localhost:4000/trade',{
+		method:'GET'
+	})
+	if(res.ok)
+	{
+		console.log('trade page');
+	}
+   } catch (error) {
+	console.error(error);
+   }
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -58,6 +73,11 @@ function App() {
           ))}
         </div>
       </form>
+	  <div>
+		<Link to='/trade'>
+		 <button onClick={handleTrade}>Trade</button>
+		</Link>
+	  </div>
 	  
     </div>
   );
